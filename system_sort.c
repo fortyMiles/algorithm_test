@@ -12,7 +12,7 @@ int intcomp(int *x, int *y){
 }
 
 int main(){
-	int N = 100000000;
+	int N = 10000000;
 
 	clock_t begin, end;
 	double time_spent;
