@@ -37,8 +37,9 @@ class BitVector:
         else:
             return 0
 
-if __name__ == '__main__':
-    total_number = 1000000
+
+def test():
+    total_number = 100000000
     bitVector = BitVector(total_number)
 
     number_file = file('number.data', 'r')
@@ -46,9 +47,32 @@ if __name__ == '__main__':
     for line in number_file.xreadlines():
         number = int(line.rstrip())
         # print line.rstrip()
-        bitVector.set_bit(number)
+        if bitVector.test_bit(number) == 0:
+            bitVector.set_bit(number)
+        else:
+            print(' dulipcated number ' + line)
 
     sorted_file = file('sorted.data', 'w+')
     for i in range(total_number):
-        if bitVector.test_bit(i) == 1:
             sorted_file.write(str(i) + '\n')
+
+
+def python_sort():
+    array = []
+    number_file = file('random.data', 'r')
+    for line in number_file.xreadlines():
+        array.append(int(line.rstrip()))
+
+    array = sorted(array)
+    sorted_file = file('system_sorted_file.data', 'w+')
+    for i in array:
+        sorted_file.write(str(i)+'\n')
+
+
+if __name__ == '__main__':
+    import time
+
+    start = time.time()
+    test()
+    print 'used time == ' + str(time.time() - start)
+
