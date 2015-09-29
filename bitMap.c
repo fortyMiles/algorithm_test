@@ -1,4 +1,4 @@
-*
+/*
  * Implements of Bit Map
  * 
  * Author: Minchiuan Gao <mqgao@outlook.com>
@@ -15,6 +15,9 @@
  *		+ bit position k % 32
  *		+ array elements with index A[k/32]
  */
+
+#include<stdio.h>
+#include "bitMap.h"
 
 void setBit(int A[], int k){
 	int pos = k % 32;
@@ -53,3 +56,10 @@ int testBit(int A[], int k){
 	}
 }
 
+int main(){
+	int a[1 + 1000000/32 ];
+	setBit(a, 3);
+	printf("%d", testBit(a, 3));
+	clearBit(a, 3);
+	printf("%d", testBit(a, 3));
+}
