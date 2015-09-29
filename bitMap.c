@@ -62,4 +62,5 @@ int main(){
 	printf("%d", testBit(a, 3));
 	clearBit(a, 3);
 	printf("%d", testBit(a, 3));
+	return 0;
 }

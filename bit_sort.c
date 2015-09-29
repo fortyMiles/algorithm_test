@@ -6,8 +6,9 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 #define BITSPERWORD 32
-#define N 1000000
+#define N 10000000
 
 void setBit(int A[], int k){
 	int pos = k % 32;
@@ -50,6 +51,11 @@ int main(){
 	FILE * fp;
 	char * line = NULL;
 	size_t len = 0;
+
+	clock_t begin, end;
+	double time_spent;
+
+	begin = clock();
 	ssize_t read;
 	int array[1 + N/BITSPERWORD];
 
@@ -83,6 +89,11 @@ int main(){
 	}
 
 	fclose(fp);
+	fclose(result);
+
+	end = clock();
+	time_spent = (double)(end - begin)/ CLOCKS_PER_SEC;
+	printf("bit sort %f", time_spent);
 	exit(EXIT_SUCCESS);
 }
 

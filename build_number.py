@@ -1,4 +1,4 @@
-K = 1000000
+K = 10000000
 
 number_file = file('number.data', 'wb+')
 
