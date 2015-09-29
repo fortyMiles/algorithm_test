@@ -1,4 +1,4 @@
-/*
+*
  * Implements of Bit Map
  * 
  * Author: Minchiuan Gao <mqgao@outlook.com>
@@ -21,7 +21,7 @@ void setBit(int A[], int k){
 	int index = k / 32;
 	unsigned int flag = 1; // flag = 0000000000000000000000001
 	flag = flag << pos; // flag =	 0000000001000000000000000
-	A[i] = A[i] | flag; // set the positino of A[i] to 1
+	A[index] = A[index] | flag; // set the positino of A[i] to 1
 	/* the shorten version
 	A[k/32] |= 1 << (k%32); //Set the bit at the k-th position in A[i]
 	*/
@@ -32,8 +32,8 @@ void clearBit(int A[], int k){
 	int pos = k % 32;
 	unsigned int flag = 1; // flag = 0000000000000000000001
 	flag = flag << pos;   //  flag = 0000000000000100000000
-	flag =~ flag;         //  flag = 1111111111111011111111
-	A[i] = A[i] & flag; // set the position in A[i] to zero
+	flag = ~flag;         //  flag = 1111111111111011111111
+	A[index] = A[index] & flag; // set the position in A[i] to zero
 	/*
 	 * the short version
 	 *		A[k/32] &= ~(1<< (k%32));
@@ -52,3 +52,4 @@ int testBit(int A[], int k){
 		return 0; 
 	}
 }
+
