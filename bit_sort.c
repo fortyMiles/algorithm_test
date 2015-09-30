@@ -47,7 +47,8 @@ int testBit(int A[], int k){
 	}
 }
 
-int main(){
+
+int bitSort(){
 	FILE * fp;
 	char * line = NULL;
 	size_t len = 0;
@@ -97,3 +98,31 @@ int main(){
 	exit(EXIT_SUCCESS);
 }
 
+int findLargestNumber(FILE *fp){
+	// find the larger from a file contains sqenutial number lines.
+	int smallest = 0;
+	fscanf(fp, "%d", &smallest);
+	fclose(fp);
+	return smallest;
+}
+
+int findSmallestNumber(FILE *fp){
+	// find the smallest from a file contains sqenutial number lines.
+}
+
+int findMissNumber(){
+	/*
+	 * finds a missed number from a huge number file.
+	 */
+	
+	// first step sort. We can use bit sort.
+	
+	bitSort();
+	// use binary search to find the miss number.
+	
+}
+
+
+int main(){
+
+}
