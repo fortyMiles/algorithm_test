@@ -172,8 +172,8 @@ int findMissNumber(){
 
 	int number = 0;
 	
-	while(number++ < 2){
-	//while(minNumber < maxNumber){
+	//while(number++ < 2){
+	while(minNumber < maxNumber){
 		fp = fopen(targetFile, "r");
 
 		if(fp == NULL){
@@ -188,6 +188,7 @@ int findMissNumber(){
 
 		int middle = (maxNumber + minNumber) / 2;
 		
+		printf("%d middle \n", middle);
 		printf("max = %d, min = %d, middle = %d", maxNumber, minNumber, middle);
 		bool findEqual = false;
 
