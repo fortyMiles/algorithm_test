@@ -1,7 +1,8 @@
 /*
  * Rotates an array of n length to left i positions.
  * assume array is <ab>, we need to rotate it to <ba>
- * <ab> => <a^rb> => <a^rb^r> => <a^rb^r>^r = <ba>
+ *	method 1: <ab> => <a^rb> => <a^rb^r> => <a^rb^r>^r = <ba>
+ *  method 2: juggle: a[i] => a[0], a[2i] => a[i]
  * 
  * Author: Minchuian Gao <mqgao@outlook.com>
  * Date: 2015-Oct-1
@@ -31,13 +32,31 @@ void rotateArray(int array[], int n, int i){
 	reverse(array, 0, n-1);
 }
 
+void juggleRotate(int array[], int n, int i){
+	/*
+	 * there is still some bugs
+	 */
+	for(int t = 0; t < i; t++){
+		int temp = array[t];
+		int index = t;
+		while(index < n){
+			if((index + i) < n){
+				array[index] = array[index + i];
+			}else{
+				array[index] = temp;
+			}
+			index += i;
+		}
+	}
+}
+
 int main(){
 	int n = 0;
 
 	printf("input the array number: \n");
 	scanf("%d", &n);
 
-	int i = 3;
+	int i = 2;
 	//int * array = (int *)malloc(n * sizeof(int));
 	int * array;
 	
@@ -52,7 +71,8 @@ int main(){
 		}
 	}
 
-	rotateArray(array, n+1, i);
+	//	rotateArray(array, n+1, i);
+	juggleRotate(array, n+1, i);
 
 	for(int i = 0; i<=n; i++){
 		printf("%d", array[i]);
