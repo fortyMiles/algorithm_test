@@ -174,7 +174,7 @@ int main(){
 	}
 
 //	int lineNumber = charGraph.lineNumber;
-//	printf("lineNumber:%d\n", lineNumber);
+/	printf("lineNumber:%d\n", lineNumber);
 //	for(int i = 0; i < charGraph.lineNumber; i++){
 //		printf("%s", charGraph.lines[i].chars);
 //	}
