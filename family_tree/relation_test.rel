@@ -1,0 +1,44 @@
+State:
+1:自己男
+2:自己女
+3:父亲
+4:母亲
+5:儿子
+6:妻子
+7:丈夫
+8:爷爷
+9:奶奶
+10:外公
+11:外婆
+12:孙子
+13:孙女
+14:外孙
+15:外孙女
+16:女儿
+
+Relation:
+F:father
+M:mother
+S:son
+D:Daughter
+c:couple
+# S:elder-sister
+# s:little-sister
+# B:elder-brother
+# b:little-brother
+
+Tansform:
+1,F,3
+1,M,4
+1,S,5
+1,D,16
+1,C,6
+2,F,3
+2,M,4
+2,S,5
+2,D,16
+2,C,7
+3,F,8
+3,M,9
+3,S,
+3,D,
