@@ -1,6 +1,7 @@
 '''
 Implements binary search tree in Python.
 Author: Minchiuan Gao
+Date: 2015-Oct-18
 '''
 
 
@@ -8,19 +9,21 @@ class Queue:
     def __init__(self):
         self.list = []
         self.begin = 0
-        self.end = -1
+        self.end = 0
 
     def append(self, elements):
         self.list.append(elements)
+        print "append %d" % elements.value
         self.end += 1
 
     def pop(self):
         result = self.list[self.begin]
+        print "pop %d" % result.value
         self.begin += 1
         return result
 
     def is_empty(self):
-        return self.begin > self.end
+        return self.begin >= self.end
 
 
 class Node:
@@ -30,19 +33,19 @@ class Node:
         self.right_slide = None
         self.level = 0
 
-    def insert_one(self, value):
-        if value < self.value:
+    def insert_one(self, node):
+        if node.value < self.value:
             if self.left_slide:
-                self.left_slide.insert_one(value)
+                self.left_slide.insert_one(node)
             else:
-                self.left_slide = Node(value=value)
-                print "self %d 's left to be %d" % (self.value, value)
+                self.left_slide = node
+                print "self %d 's left to be %d" % (self.value, node.value)
         else:
             if self.right_slide:
-                self.right_slide.insert_one(value)
+                self.right_slide.insert_one(node)
             else:
-                self.right_slide = Node(value=value)
-                print "self %d 's right to be %d" % (self.value, value)
+                self.right_slide = node
+                print "self %d 's right to be %d" % (self.value, node.value)
 
 
 def traver_tree(node):
@@ -76,6 +79,8 @@ if __name__ == '__main__':
     data = [12, 43, 54, 65, 76, 34, 1]
     node = Node(value=30)
     for e in data:
-        node.insert_one(e)
+        new_node = Node(value=e)
+        node.insert_one(new_node)
 
+    traver_tree(node)
     tarvese_tree_mid(node)
